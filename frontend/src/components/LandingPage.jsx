@@ -9,7 +9,7 @@ export default function LandingPage() {
   const navigator=useNavigate();
 
   useEffect(()=>{
-    fetch("http://localhost:5000/islogin",{
+    fetch("https://tic-tac-toe-xu3n.onrender.com/islogin",{
       credentials:"include"
     })
     .then((res)=>{

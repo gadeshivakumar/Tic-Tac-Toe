@@ -13,7 +13,7 @@ const Home = () => {
 
   function handleLogout(){
       console.log("clicked")
-      fetch("http://localhost:5000/logout",{
+      fetch("https://tic-tac-toe-xu3n.onrender.com/logout",{
         credentials:"include",
       }).then((res)=>{
         if(res.ok){
@@ -26,7 +26,7 @@ const Home = () => {
   }
 
   useEffect(()=>{
-    fetch('http://localhost:5000/getName',{
+    fetch('https://tic-tac-toe-xu3n.onrender.com/getName',{
         credentials:"include",
       })
       .then((res)=>{

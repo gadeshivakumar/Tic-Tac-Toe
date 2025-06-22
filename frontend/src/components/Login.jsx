@@ -7,7 +7,7 @@ export default function Login() {
     const [phone,setPhone]=useState('')
     const handleSubmit=(e)=>{
       e.preventDefault();
-      fetch("http://localhost:5000/login",{
+      fetch("https://tic-tac-toe-xu3n.onrender.com/login",{
          method:"post",
         credentials:"include",
         headers:{"Content-type":"application/json"},

@@ -48,7 +48,7 @@ export default function Game() {
     
     useEffect(()=>{
 
-        socket.current=io('http://localhost:5000/',{
+        socket.current=io('https://tic-tac-toe-xu3n.onrender.com/',{
             auth:{
                 token:token
             }

@@ -10,7 +10,7 @@ export default function Register() {
 
     function handleSubmit(e){
       e.preventDefault();
-      fetch('http://localhost:5000/register',{
+      fetch('https://tic-tac-toe-xu3n.onrender.com/register',{
         method:"post",
         credentials:"include",
         headers:{"Content-type":"application/json"},

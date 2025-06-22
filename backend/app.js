@@ -12,14 +12,19 @@ const app=express()
 const server=http.createServer(app);
 const path=require('path')
 const ck=require('cookie-parser')
-const io= new Server(server);
+const io= new Server(server,{
+    cors:{
+    origin:"https://tic-tac-toe-xu3n.onrender.com",
+    credentials:true
+    }
+});
 app.use(ck())
 app.use(express.urlencoded({extended:true}))
 app.use(bp.json())
-// app.use(cors({
-//     origin:"http://localhost:5173",
-//     credentials:true
-// }))
+app.use(cors({
+    origin:"https://tic-tac-toe-xu3n.onrender.com",
+    credentials:true
+}))
 
 
 // app.use(express.static(path.resolve(__dirname,"../frontend/public")))
