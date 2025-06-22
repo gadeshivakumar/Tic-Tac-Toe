@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "npm start",
     "test": "node test.js"
   },
   "keywords": [],
@@ -22,6 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
     "multer": "^2.0.1",
+    "nodemon": "^3.1.10",
     "socket.io": "^4.8.1"
   }
 }
