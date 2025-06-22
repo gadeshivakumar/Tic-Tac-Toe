@@ -1,0 +1,87 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #2e0854, #000428); /* Royal purple to midnight blue */
+  color: #f8f0e3; /* Creamy gold-white */
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+  height: 100px;
+}
+
+.logout-btn {
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #c084fc, #a855f7); /* Soft royal lavender */
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.logout-btn:hover {
+  background-color: #9333ea; /* Deeper purple */
+  transform: scale(1.05);
+}
+
+.home-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #2e0854, #000428);
+  color: #f8f0e3;
+}
+
+.welcome-text {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #f9e79f; /* Soft royal gold */
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #e4dcdc;
+}
+
+.play-btn {
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f0b90b, #ffdd00); /* Gold gradient */
+  color: #2e0854; /* Deep purple text */
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.play-btn:hover {
+  background-color: #d4af37; /* Classic gold */
+  transform: scale(1.05);
+}
+
+.home-footer {
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+  color: #e4dcdc;
+}
