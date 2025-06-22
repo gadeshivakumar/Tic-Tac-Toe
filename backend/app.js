@@ -252,7 +252,8 @@ app.get("/logout",(req,res)=>{
 
 
 
+const PORT=process.env.PORT || 5000
 
-server.listen(5000,()=>{
-    console.log('Server Started at 5000'); 
+server.listen(PORT,()=>{
+    console.log(`http server stated at port ${PORT}`)
 })
