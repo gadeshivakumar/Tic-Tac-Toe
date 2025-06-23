@@ -51,7 +51,7 @@ io.use((socket,next)=>{
 
 
 
-mongo.connect(process.env.mongo_url)
+mongo.connect(process.env.MONGO_URL)
     .then(()=>{
         console.log("MongoDB connected");
     })
