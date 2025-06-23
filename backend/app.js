@@ -220,11 +220,15 @@ app.post("/login",async(req,res)=>{
         req.phone=phone;
         req.uname=u.name;
         const token=jwt.sign({phone:phone,name:u.name},process.env.SECRET_KEY);
-        res.cookie("tokens",token,{
-            maxAge: 10*24*60*60*1000,
-            // httpOnly: true,
-            // secure: true,
-        })
+        const isProduction = process.env.NODE_ENV === "production";
+
+        res.cookie("tokens", token, {
+        maxAge: 10 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: isProduction ? "None" : "Lax",
+        });
+
         return res.status(200).send();
     })
     .catch(()=>{
@@ -245,16 +249,24 @@ app.get("/islogin",authorize,(req,res)=>{
 
 app.get("/logout",(req,res)=>{
 
-    res.clearCookie('tokens',{
-            maxAge: 10*24*60*60*1000,
-            // httpOnly: true,
-            // secure: true,
-        });
+    const isProduction = process.env.NODE_ENV === "production";
+
+    res.clearCookie("tokens", {
+    maxAge: 10 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? "None" : "Lax",
+    });
+
+
     console.log("done");
     res.status(200).send();
 
 })
 
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(distPath, 'index.html'));
+// });
 
 
 const PORT=process.env.PORT || 5000
