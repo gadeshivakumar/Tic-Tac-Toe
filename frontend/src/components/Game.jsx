@@ -15,16 +15,7 @@ export default function Game() {
     const [myTurn,setMyTurn]=useState(true)
     const [reconnect,setReconnect]=useState(false)
 
-    const token=useMemo(()=>{
-        const t=document.cookie.split("; ");
-        for(let i of t){
-            let [key,val]=i.split("=");
-            if(key==="tokens"){
-                return val;
-            }
-        }
-        return null;
-    },[])
+    
     function handleClick(ind){
             if(status=="" && arr[ind]==="" && myTurn){
             const turn=arr.filter((a)=>a!=="").length;
@@ -48,12 +39,19 @@ export default function Game() {
     
     useEffect(()=>{
 
-        socket.current=io('https://tic-tac-toe-xu3n.onrender.com/',{
+        fetch("https://tic-tac-toe-xu3n.onrender.com/getToken",{
+            method:"get",
+            credentials:"include"
+        }).then((res)=>res.json())
+        .then(token=>{
+            socket.current=io('https://tic-tac-toe-xu3n.onrender.com/',{
             auth:{
                 token:token
             },
             withCredentials:true,
-        });
+            });
+        })
+        
         setReconnect(false)
         socket.current.on('connect',()=>{
             socket.current.emit("setNum");

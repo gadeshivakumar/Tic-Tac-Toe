@@ -268,6 +268,16 @@ app.get("/logout",(req,res)=>{
 //   res.sendFile(path.join(distPath, 'index.html'));
 // });
 
+app.get("/getToken",authorize,(req,res)=>{
+    const token=req.cookies.tokens;
+    if(token){
+        return res.status(200).json({token});
+    }
+    else{
+        return res.status(400).send();
+    }
+})
+
 
 const PORT=process.env.PORT || 5000
 
