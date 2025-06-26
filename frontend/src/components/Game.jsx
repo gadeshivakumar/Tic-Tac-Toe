@@ -47,7 +47,7 @@ export default function Game() {
             console.log(token);
             socket.current=io('https://tic-tac-toe-xu3n.onrender.com/',{
             auth:{
-                token:token
+                token:token,
             },
             withCredentials:true,
             });
