@@ -44,19 +44,15 @@ export default function Game() {
             credentials:"include"
         }).then((res)=>res.json())
         .then(({token})=>{
+            setReconnect(false)
             socket.current=io('https://tic-tac-toe-xu3n.onrender.com/',{
             auth:{
                 token:token,
             },
             withCredentials:true,
             });
-        })
-        
-        setReconnect(false)
-        console.log(socket.current)
-        if(socket.current){
-        
-        socket.current.on('connect',()=>{
+
+            socket.current.on('connect',()=>{
             socket.current.emit("setNum");
             console.log("connected")
         })
@@ -100,9 +96,7 @@ export default function Game() {
             setPlayer({})
             setReconnect(true);
         })
-
-    }
-
+        })
         return ()=>{
             if(socket.current){
                 socket.current.disconnect();
