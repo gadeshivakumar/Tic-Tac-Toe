@@ -53,7 +53,7 @@ export default function Game() {
         })
         
         setReconnect(false)
-
+        console.log(socket.current)
         if(socket.current){
         
         socket.current.on('connect',()=>{
