@@ -43,7 +43,7 @@ export default function Game() {
             method:"get",
             credentials:"include"
         }).then((res)=>res.json())
-        .then(token=>{
+        .then((token)=>{
             socket.current=io('https://tic-tac-toe-xu3n.onrender.com/',{
             auth:{
                 token:token

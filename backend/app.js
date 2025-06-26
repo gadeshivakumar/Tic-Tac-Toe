@@ -271,7 +271,7 @@ app.get("/logout",(req,res)=>{
 app.get("/getToken",authorize,(req,res)=>{
     const token=req.cookies.tokens;
     if(token){
-        return res.status(200).json({token});
+        return res.status(200).json({token:token});
     }
     else{
         return res.status(400).send();
