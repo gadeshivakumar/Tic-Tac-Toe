@@ -51,7 +51,8 @@ export default function Game() {
         socket.current=io('https://tic-tac-toe-xu3n.onrender.com/',{
             auth:{
                 token:token
-            }
+            },
+            withCredentials:true,
         });
         setReconnect(false)
         socket.current.on('connect',()=>{
