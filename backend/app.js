@@ -14,7 +14,7 @@ const path=require('path')
 const ck=require('cookie-parser')
 const io= new Server(server,{
     cors:{
-    origin:"https://tic-tac-toe-xu3n.onrender.com",
+    origin:"https://tic-tac-toe-tau-jade.vercel.app",
     credentials:true
     }
 });
@@ -22,14 +22,14 @@ app.use(ck())
 app.use(express.urlencoded({extended:true}))
 app.use(bp.json())
 app.use(cors({
-    origin:"https://tic-tac-toe-xu3n.onrender.com",
+    origin:"https://tic-tac-toe-tau-jade.vercel.app",
     credentials:true
 }))
 
 
-// app.use(express.static(path.resolve(__dirname,"../frontend/public")))
-const distPath = path.resolve(__dirname, "../frontend/dist");
-app.use(express.static(distPath));
+// // app.use(express.static(path.resolve(__dirname,"../frontend/public")))
+// const distPath = path.resolve(__dirname, "../frontend/dist");
+// app.use(express.static(distPath));
 
 io.use((socket,next)=>{
     const token=socket.handshake.auth.token;
